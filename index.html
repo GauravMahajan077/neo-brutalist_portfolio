@@ -1,28 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Gaurav Mahajan — Portfolio</title>
   <script src="https://cdn.tailwindcss.com"></script>
-
-  
   <style>
-    :root{
+    :root {
       --neo-accent: #783ffe;
       --neo-shadow: rgba(0,0,0,1);
       --bg-paper: #fffdf7;
       
-      --s1: #7fe8a8; 
-      --s2: #9ff2c6; 
+      --s1: #7fe8a8;
+      --s2: #9ff2c6;
       --s3: #ccfeec;
-      --s4: #e6fff6; 
-      --s5: #dfffe8; 
+      --s4: #e6fff6;
+      --s5: #dfffe8;
       --s6: #86ffc1;
     }
-
     
-    html,body { height: 100%; }
+    html, body { height: 100%; }
     body {
       background: linear-gradient(
         90deg,
@@ -54,11 +51,11 @@
       box-shadow: 6px 6px 0 0 rgba(0,0,0,1);
       border-radius:4px;
     }
+
     header.site-header a { color: #0b1220; text-decoration:none; margin-left:0.75rem; }
     header.site-header a:hover { text-decoration:underline; }
-
     
-    .hero-grid{
+    .hero-grid {
       display: grid;
       grid-template-columns: 360px 1fr;
       gap: 3rem;
@@ -73,7 +70,6 @@
       .polaroid { transform: none !important; margin: 0 auto; }
       .hero-text { text-align: center; }
     }
-
     
     .neobrutal-frame {
       position: relative;
@@ -83,12 +79,11 @@
       box-shadow: 10px 10px 0 0 var(--neo-shadow);
       width: 100%;
       max-width: 360px;
-      overflow: hidden; 
+      overflow: hidden;
       -webkit-backface-visibility: hidden;
       backface-visibility: hidden;
       box-sizing: border-box;
     }
-
     
     .neobrutal-frame::after {
       content: "";
@@ -100,7 +95,6 @@
       pointer-events: none;
       box-sizing: border-box;
     }
-
     
     .polaroid {
       transform: rotate(-2deg);
@@ -109,7 +103,6 @@
       padding: 12px;
       width: 100%;
     }
-
     .frame-img {
       width: 100%;
       height: 100%;
@@ -118,18 +111,15 @@
       border-radius: 6px;
       position: relative;
       z-index: 1;
-      aspect-ratio: 4 / 5; 
+      aspect-ratio: 4 / 5;
       background: #f7f7f7;
     }
-
     
     .frame-img-clean {
-      
       -webkit-mask-image: linear-gradient(#000 98%, transparent 100%);
       mask-image: linear-gradient(#000 98%, transparent 100%);
       mask-size: 100% 100%;
     }
-
     
     .neobrutal-frame:hover {
       transform: translate(-6px, -6px) rotate(-1deg);
@@ -137,8 +127,8 @@
     }
 
     .hero-heading { font-size: clamp(1.75rem, 3.4vw, 2.75rem); line-height: 1.05; margin: 0 0 0.6rem 0; }
-    .hero-sub { max-width: 48rem; font-size: 1.05rem; color: #04111a; opacity: 0.95; margin: 0 0 1rem 0; }
-
+    .hero-sub { max-width: 48rem; font-size: 1.05rem; color: #04111a; opacity: 0.95; margin-bottom: 1rem; }
+    
     footer.site-footer {
       max-width: 1120px;
       margin: 0 auto 2rem;
@@ -152,42 +142,51 @@
   </style>
 </head>
 <body>
-
-  <header class="site-header" role="banner">
+  <header class="max-w-[1120px] mx-auto px-4 py-3 flex items-center justify-between bg-white border-b-4 border-black shadow-[6px_6px_0_0_rgba(0,0,0,1)] rounded-md static z-40">
     <h1 class="text-lg md:text-2xl font-bold">Gaurav Mahajan</h1>
-    <nav aria-label="Main navigation">
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
+    <nav class="hidden md:flex gap-6 items-center text-base" aria-label="Main navigation">
+      <a href="#about" class="hover:underline">About</a>
+      <a href="#projects" class="hover:underline">Projects</a>
+      <a href="#contact" class="hover:underline">Contact</a>
     </nav>
+    <button id="menuBtn" class="md:hidden menu-btn p-2 rounded bg-white border-2 border-black" aria-expanded="false" aria-controls="mobileNav" aria-label="Open menu">
+      <svg width="22" height="14" viewBox="0 0 22 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect width="22" height="2" y="0" rx="1" fill="#000"/>
+        <rect width="22" height="2" y="6" rx="1" fill="#000"/>
+        <rect width="22" height="2" y="12" rx="1" fill="#000"/>
+      </svg>
+    </button>
   </header>
 
+  <div id="mobileNav" class="fixed inset-x-4 top-20 bg-white border-4 border-black rounded-xl shadow-[8px_8px_0_0_rgba(0,0,0,1)] p-4 z-30 hidden" role="menu" aria-label="Mobile navigation">
+    <a href="#about" class="block py-2 text-lg">About</a>
+    <a href="#projects" class="block py-2 text-lg">Projects</a>
+    <a href="#contact" class="block py-2 text-lg">Contact</a>
+  </div>
 
   <main class="hero-grid" role="main">
-
     <div style="display:flex; justify-content:center; align-items:center;">
-      <div class="neobrutal-frame polaroid" aria-hidden="false">
-        
+      <div class="neobrutal-frame polaroid">
         <img
           src="gauravbhai.jpg"
           alt="Gaurav Mahajan — portrait"
           class="frame-img frame-img-clean"
           loading="lazy"
           decoding="async"
+          width="360"
+          height="450"
         />
       </div>
     </div>
-
     <div class="hero-text">
       <h2 class="hero-heading"><strong>Hello, I'm</strong> <span style="color:var(--neo-accent)">Gaurav</span></h2>
       <p class="hero-sub">
-        A passionate Software Engineering student loves to building unique projects that blend technology, AI, and creativity.
+        A passionate Software Engineering student who loves building unique projects that blend technology, AI, and creativity.
         I focus on clean, strong design and practical code — especially projects that solve real problems in Fintech, Biotech,
-        Education, Research and more...
-        Damn interested in Art, Psychology, Artificial Intelligence and Machine Learning, Quantum Computing, BioTech, Geopolitics, Foreign Affairs, etc.
-        Leonardo da Mahajan, that's me!
-    </p>
-
+        Education, and Research.  
+        I'm deeply interested in Art, Psychology, Artificial Intelligence and Machine Learning, Quantum Computing, BioTech, Geopolitics, and Foreign Affairs.  
+        Leonardo da Mahajan — that's me!
+      </p>
       <div style="display:flex; gap:1rem; flex-wrap:wrap;">
         <a href="#projects" class="inline-block bg-yellow-300 border-4 border-black rounded-xl px-6 py-3 font-bold shadow-[4px_4px_0_0_rgba(0,0,0,1)]">
           View My Work
@@ -202,32 +201,45 @@
   <section id="about" class="max-w-4xl mx-auto p-8 mb-16 bg-white border-4 border-black rounded-xl shadow-[6px_6px_0_0_rgba(0,0,0,1)]">
     <h3 class="text-2xl font-bold mb-4">About Me</h3>
     <p>
-
-Hey geeks! I'm IT Engineering student who's absolutely obsessed with AI/ML, web development, and IoT magic. I live for crafting bold, experimental UIs and shipping tools that actually move the needle for users. When I'm not deep in code, you'll find me rapidly prototyping the next big thing or tinkering with bleeding-edge tech.
-I'm all about building disruptive projects that blend cutting-edge AI with creative problem-solving. My stack? Clean, performant code with rock-solid architecture. I'm particularly drawn to tackling gnarly problems in fintech, biotech, edtech, and scientific research, ... basically anywhere tech can make a real dent in the universe.
-I'm a full-stack engineer with serious ML chops and IoT expertise. My sweet spot? Taking complex algorithmic wizardry and wrapping it in butterysmooth UX that just works. Whether I'm spinning up microservices, training neural networks, or orchestrating edge computing solutions, I focus on shipping scalable products that users actually love.
-I'm not just another code monkey(yet using AI to design beautiful project but I can architect it very well or you can say skillfully).
-I geek out over art, psychology, quantum computing, biotech breakthroughs, and geopolitical chess moves(BTW I love chess really). This eclectic mix of interests? It's my secret sauce for connecting dots others miss and cooking up solutions that are genuinely innovative.
-I bring serious analytical firepower, creative problem-solving skills, and that "I am fool lets learn!!" mindset to everything I touch. I thrive in fast-moving environments, love diving into emerging tech rabbit holes, and have zero patience for building things that don't matter. My mission? Crafting technology that doesn't just work, it makes the world a little bit better.
-
-BTW Most of the projects are under development, so please be patient with me and this creative writer is claude+me!
-</p>
+      Hey geeks! I'm an IT Engineering student who's absolutely obsessed with AI/ML, web development, and IoT magic.
+      I live for crafting bold, experimental UIs and shipping tools that make a real difference to users. When I'm not coding, 
+      you'll find me rapidly prototyping the next big thing or tinkering with bleeding-edge tech.  
+      I'm all about building disruptive projects that blend cutting-edge AI with creative problem-solving.
+      My stack: clean, performant code with rock-solid architecture.  
+      I'm particularly drawn to tackling complex problems in fintech, biotech, edtech, and scientific research — 
+      basically anywhere technology can make a real dent in the universe.  
+      I'm a full-stack engineer with ML expertise and IoT skills. My sweet spot: taking complex algorithmic wizardry and wrapping it in buttery-smooth UX.
+      Whether I'm spinning up microservices, training neural networks, or orchestrating edge computing solutions, I focus on scalable products users love.  
+      I geek out over art, psychology, quantum computing, biotech breakthroughs, and geopolitical chess moves (yes, I love chess).  
+      This eclectic mix fuels my ability to connect dots others miss and create genuinely innovative solutions.  
+      I bring analytical firepower, creative problem-solving, and a "I'm a fool, let's learn!" mindset to everything I touch.
+      My mission: craft technology that not only works but makes the world just a little bit better.  
+      Most of my projects are still under development, so stay tuned!
+    </p>
   </section>
 
-  
   <section id="projects" class="max-w-5xl mx-auto px-6 mb-16">
     <h3 class="text-2xl font-bold mb-6 text-center">Projects</h3>
     <div class="grid md:grid-cols-2 gap-8">
       <div class="bg-white border-4 border-black rounded-xl shadow-[6px_6px_0_0_rgba(0,0,0,1)] p-6">
         <h4 class="text-xl font-bold mb-2">Learning Management System</h4>
-        <p class="mb-4">A Python-based desktop application to manage and automate study and tasks. Desktop Learning Management System built with PyQt6 and  SQLite — a compact, production-minded desktop app with role-based access (Student/Admin), full CRUD for courses and materials (PDFs with auto page-count + videos), and a card-style course dashboard with per-user progress indicators. It includes a custom PDF reader that saves the last-read page, student tasks and reminders, admin announcements with approval workflows, rich-text notes supporting inline images, and a color-coded event calendar. Built-in analytics (matplotlib) and auto-generated PDF reports (reportlab) make tracking and reporting simple
-</p>
+        <p class="mb-4">
+          A Python-based desktop application to manage and automate study and tasks.
+          Built with PyQt6 and SQLite — includes role-based access (Student/Admin), course CRUD, PDF/video management, a 
+          custom PDF reader that remembers last-read page, task reminders, admin announcements with approval workflow,
+          rich-text notes with inline images, and a color-coded calendar.  
+          Includes analytics with matplotlib and auto-generated PDF reports via reportlab.
+        </p>
         <a href="https://github.com/GauravMahajan077/LMS.git" class="text-blue-500 underline">View Project</a>
       </div>
 
       <div class="bg-white border-4 border-black rounded-xl shadow-[6px_6px_0_0_rgba(0,0,0,1)] p-6">
         <h4 class="text-xl font-bold mb-2">Hospital Management System</h4>
-        <p class="mb-4">This Java-based desktop application, powered by MySQL and Swing, delivers a clean and intuitive interface for end-to-end hospital management. It packs in robust modules for patient, doctor, and staff administration, along with advanced room allocation and ambulance tracking systems. The built-in appointment scheduler ensures seamless booking and minimal conflicts. With real-time data handling, optimized workflows, and high-accuracy record management, it streamlines operations, saves valuable time, and keeps everything running like clockwork.</p>
+        <p class="mb-4">
+          Java-based desktop application using MySQL and Swing for full-scale hospital management.
+          Modules include patient, doctor, and staff administration, advanced room allocation, and ambulance tracking.
+          An appointment scheduler avoids conflicts, and real-time data ensures optimized workflows with accurate records.
+        </p>
         <a href="https://github.com/GauravMahajan077/Hospital.management.system-.git" class="text-blue-500 underline">View Project</a>
       </div>
     </div>
@@ -248,8 +260,21 @@ BTW Most of the projects are under development, so please be patient with me and
     <small>&copy; 2025 Gaurav Mahajan</small>
   </footer>
 
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileNav = document.getElementById('mobileNav');
+    menuBtn.addEventListener('click', () => {
+      mobileNav.classList.toggle('hidden');
+      const isOpen = !mobileNav.classList.contains('hidden');
+      menuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
 
-
-
+    mobileNav.querySelectorAll('a').forEach(a =>
+      a.addEventListener('click', () => {
+        mobileNav.classList.add('hidden');
+        menuBtn.setAttribute('aria-expanded', 'false');
+      })
+    );
+  </script>
 </body>
 </html>
